@@ -1,3 +1,7 @@
+# Project-specific ClojureScript excludes
+**/out/
+
+# Clojure excludes
 pom.xml
 pom.xml.asc
 *jar
