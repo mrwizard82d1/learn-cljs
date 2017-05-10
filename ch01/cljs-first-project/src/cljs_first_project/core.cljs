@@ -1,3 +1,8 @@
-(ns cljs-first-project.core)
+(ns cljs-first-project.core
+  (:require [clojure.browser.repl :as repl]))
 
-(js/alert "Hello, First ClojureScript Project!\nWatchin' for changes.")
+;; Use `defonce` to ensure single connection persists across reloads.
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(js/alert "Hello, First ClojureScript REPL!")
