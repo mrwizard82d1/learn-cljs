@@ -11,9 +11,11 @@
                        :output-to "out/main.js"
                        :verbose true})
 
-(require 'cljs.repl.browser)
+;; We're using Weasel to communicate
+(require 'weasel.repl.websocket)O
 
 ;; Connect the ClojureScript REPL to the browser
-(cemerick.piggieback/cljs-repl (cljs.repl.browser/repl-env))
+(cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip "0.0.0.0"
+                                                               :port 9001))
 
-;; (js/alert "Hello, World, from Piggieback!")
+;; (js/alert "Hello, World, from Weasel!")
