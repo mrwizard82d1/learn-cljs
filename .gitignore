@@ -1,6 +1,7 @@
 # Project-specific ClojureScript excludes
 **/out/
 **/.repl*
+**/.cljs_node_repl
 
 # Clojure excludes
 pom.xml

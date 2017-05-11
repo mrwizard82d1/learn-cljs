@@ -1,21 +1,15 @@
-;; Code to enter at the REPL to connect to the browser
+;; Code to enter at the REPL to connect to the Node.js
 
 (require 'cljs.build.api)
+(require 'cljs.repl.node)
 
-;; Build everything in "src". 
-;; Start executing `piggieback-project.core`
-;; Put the compiled output in "out/main.js"
-;; Verbose output
 (cljs.build.api/build "src"
-                      {:main 'piggieback-project.core
-                       :output-to "out/main.js"
-                       :verbose true})
+                      {:main 'piggieback_project.core ;; The entry point (on the classpath)
+                       ;; compile all code into this file
+                       :output-to "out/main.js" ;; Compile all code into this JavaScript file
+                       :verbose true ;; Display "extra" output
+                       })
 
-;; We're using Weasel to communicate
-(require 'weasel.repl.websocket)O
+;; Now start the REPL connected to Node.js 
+(cemerick.piggieback/cljs-repl (cljs.repl.node/repl-env))
 
-;; Connect the ClojureScript REPL to the browser
-(cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip "0.0.0.0"
-                                                               :port 9001))
-
-;; (js/alert "Hello, World, from Weasel!")
