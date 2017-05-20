@@ -75,6 +75,19 @@
   (#(println "The argument to this function is:" %) "Bonkers!")
   (println)
   (utils/print-expansion "Interestingly, here's it's expanded form"
-                         (#(println "The argument to this function is:" %) "Bonkers!")))
+                         (#(println "The argument to this function is:" %) "Bonkers!"))
+
+  ;; Side-effects
+  (utils/section "Side-effects")
+  (println)
+  (println "Even though ClojureScript is a functional language, it supports side effects:")
+  (println "  (console.log \"I am a side effect!\")")
+  (console.log "I am a side effect!")
+  (utils/demonstrate "And various `do` forms for multiple side effects",
+                     (do
+                       (println "I am a side effect")
+                       ;; I am evaluated - but result in nothing
+                       "This string is returned."))
+  )
 
 (set! *main-cli-fn* main)
