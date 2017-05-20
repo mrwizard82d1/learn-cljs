@@ -47,11 +47,13 @@
   (println "To fix this, use `print` and evaluate `(yell)` immediately afterwards:")
   (print "Functions *do not* require arguments: (yell) => ")
   (yell)
+  
   ;; Multiarity functions
   (println)
   (println "ClojureScript supports multiarity (different implementations based on *number* of arguments).")
   (utils/demonstrate "`inc4` supports a single argument" (inc4 3) 
                      "and supports *two* arguments" (inc4 3 4))
+
   ;; Variadic functions
   (println)
   (println "ClojureScript supports variadic functions (functions that take any number of arguments)")
@@ -60,6 +62,18 @@
                      "`sum(5 4 3 2 1)` returns" (sum 5 4 3 2 1))
   (println)
   (println "Variadic functions can have a minimum number of arguments")
-  (utils/demonstrate "`minimum-variadic(1 2 3 4)` results in" (minimum-variadic 1 2 3 4)))
+  (utils/demonstrate "`minimum-variadic(1 2 3 4)` results in" (minimum-variadic 1 2 3 4))
+
+  ;; Anonymous functions
+  (println)
+  (println "Anonymous functions are supported")
+  (utils/demonstrate "Immediate invocation of the anonymous function produces", 
+                     ((fn [x] (println "The argument to this function is:" x)) "Bonkers!"))
+  (println "The ClojureScript reader supports another form of anonymous functions")
+  (println "  (#(println \"The argument to this function is:\" %) \"Bonkers!\")")
+  (#(println "The argument to this function is:" %) "Bonkers!")
+  (println)
+  (utils/print-expansion "Interestingly, here's it's expanded form"
+                         (#(println "The argument to this function is:" %) "Bonkers!")))
 
 (main)
