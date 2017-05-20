@@ -1,5 +1,4 @@
-(require-macros '[utils.core :as utils-m])
-(require '[utils.core :as utils])
+(require '[utils.core :as utils :include-macros true])
 
 (def inc2 
   (fn [x] 
@@ -85,6 +84,22 @@
                        (println "I am a side effect")
                        ;; I am evaluated - but result in nothing
                        "This string is returned."))
+
+  ;; Local variables
+  (utils/section "ClojureScript reports local variables")
+  (utils/demonstrate "`let` introducing a single local binding"
+                     (let [x 10] (println x) x)
+                     "Or multiple bindings"
+                     (let [a 1 b 2] {a b}))
+  (utils/demonstrate "`let` bindings can *hide* other local bindings"
+                     (do
+                       (defn bar [x] (let [x true] x))
+                       (bar false)))
+  (utils/demonstrate "Finally `let` wraps its body in an implicit `do`"
+                     (do
+                       (let [a 5]
+                         (println a)
+                         (+ a 3))))
   )
 
 (main)
