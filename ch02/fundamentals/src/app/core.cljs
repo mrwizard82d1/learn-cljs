@@ -14,6 +14,15 @@
 (defn yell []
   (println "Aaaaagh!"))
 
+(defn inc4 
+  "Alternate incrementer.
+  
+  Supply a single argument and returns one more than that argument. Supply multiple arguments and 
+  returns one more than the *sum* of the two values.
+  "
+  ([x] (+ x 1))
+  ([x y] (+ x y 1)))
+
 (defn main [& args]
   (utils/demonstrate "A simple function call" (+ 1 2))
   (utils/demonstrate "Implement our own `inc`" (inc2 8))
@@ -27,6 +36,10 @@
   (println)
   (println "To fix this, use `print` and evaluate `(yell)` immediately afterwards:")
   (print "Functions *do not* require arguments: (yell) => ")
-  (yell))
+  (yell)
+  (println)
+  (println "ClojureScript supports multiarity (different implementations based on *number* of arguments).")
+  (utils/demonstrate "`inc4` supports a single argument" (inc4 3))
+  (utils/demonstrate "and supports *two* arguments" (inc4 3 4)))
 
 (set! *main-cli-fn* main)
