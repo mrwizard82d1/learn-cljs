@@ -1,4 +1,5 @@
-(ns utils.core)
+(ns utils.core
+  (:require [clojure.string :as str]))
 
 (defmacro demo-one [prefix expr]
   `(do
@@ -24,4 +25,9 @@
   `(do
      (println (str ~prefix ":"))
      (println (str"  " '~expr))))
+
+(defn section [header]
+  (println)
+  (println header)
+  (println (str/join "" (repeat (count header) "-"))))
 
