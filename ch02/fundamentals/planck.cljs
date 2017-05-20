@@ -34,10 +34,10 @@
 
 (defn main [& args]
   ;; Simple functions
-  (utils/demo-separate "A simple function call" (+ 1 2))
-  (utils/demo-separate "Implement our own `inc`" (inc2 8))
-  (utils/demo-separate "Our own `inc` using `defn`" (inc3 4))
-  (utils/demo-separate "Functions *do not* require arguments" (yell))
+  (utils/demonstrate "A simple function call" (+ 1 2))
+  (utils/demonstrate "Implement our own `inc`" (inc2 8))
+  (utils/demonstrate "Our own `inc` using `defn`" (inc3 4))
+  (utils/demonstrate "Functions *do not* require arguments" (yell))
   (println)
   (println "Notice that the 'yelling' ('Aaaaagh!') occurs *before* printing the result (';; => <>').")
   (println "This behavior occurs because the expression `(yell)` is evaluated, printing the yell, *before*")
@@ -50,16 +50,16 @@
   ;; Multiarity functions
   (println)
   (println "ClojureScript supports multiarity (different implementations based on *number* of arguments).")
-  (utils/demo-one "`inc4` supports a single argument" (inc4 3))
-  (utils/demo-one "and supports *two* arguments" (inc4 3 4))
+  (utils/demonstrate "`inc4` supports a single argument" (inc4 3) 
+                     "and supports *two* arguments" (inc4 3 4))
   ;; Variadic functions
   (println)
   (println "ClojureScript supports variadic functions (functions that take any number of arguments)")
-  (utils/demo-separate "`sum()` returns" (sum))
-  (utils/demo-one "`sum(5)` returns" (sum 5))  
-  (utils/demo-one "`sum(5 4 3 2 1)` returns" (sum 5 4 3 2 1))
+  (utils/demonstrate "`sum()` returns" (sum)
+                     "`sum(5)` returns" (sum 5)
+                     "`sum(5 4 3 2 1)` returns" (sum 5 4 3 2 1))
   (println)
   (println "Variadic functions can have a minimum number of arguments")
-  (utils/demo-separate "`minimum-variadic(1 2 3 4)` results in" (minimum-variadic 1 2 3 4)))
+  (utils/demonstrate "`minimum-variadic(1 2 3 4)` results in" (minimum-variadic 1 2 3 4)))
 
 (main)
