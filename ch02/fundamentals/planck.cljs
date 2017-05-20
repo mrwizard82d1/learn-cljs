@@ -1,8 +1,3 @@
-(ns app.core
-  (:require [cljs.nodejs :as nodejs]))
-
-(nodejs/enable-util-print!)
-
 (def inc2 
   (fn [x] 
     (+ x 1)))
@@ -28,4 +23,4 @@
   (print "Functions *do not* require arguments: (yell) => ")
   (yell))
 
-(set! *main-cli-fn* main)
+(main)
