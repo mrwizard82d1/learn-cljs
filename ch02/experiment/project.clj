@@ -34,6 +34,7 @@
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/experiment.js"
                            :output-dir "resources/public/js/compiled/out"
+                           :optimizations :none
                            :source-map-timestamp true
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                            ;; https://github.com/binaryage/cljs-devtools
@@ -52,7 +53,7 @@
              ;; :server-port 3449 ;; default
              ;; :server-ip "127.0.0.1"
 
-             :css-dirs ["resources/public/css"] ;; watch and update CSS
+             :css-dirs ["resources/public/css"]} ;; watch and update CSS
 
              ;; Start an nREPL server into the running figwheel process
              ;; :nrepl-port 7888
@@ -85,7 +86,7 @@
 
              ;; to pipe all the output to the repl
              ;; :server-logfile false
-             }
+
 
 
   ;; setting up nREPL for Figwheel and ClojureScript dev

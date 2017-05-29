@@ -7,6 +7,13 @@
   [x y z]
   (* z (adder x y)))
 
+(defn render
+  []
+  (.render (js/treeact)))
+
+(render)
+
+
 ;; We could replace this, but it's more convenient in the short term to leave it here.
 
 (println "This text is printed from src/experiment/core.cljs. Go ahead and edit it and see reloading in action.")
