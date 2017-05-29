@@ -1,11 +1,11 @@
 (ns experiment.core
-  (:require [experiment.utils :as utils]))
+  (:require [experiment.utils :refer [adder]]))
 
 (enable-console-print!)
 
 (defn adder-multiplier
   [x y z]
-  (* z (utils/adder x y)))
+  (* z (adder x y)))
 
 ;; We could replace this, but it's more convenient in the short term to leave it here.
 
