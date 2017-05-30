@@ -1,5 +1,6 @@
 (ns experiment.core
-  (:require [experiment.utils :refer [adder]]))
+  (:require [experiment.utils :refer [adder]]
+      [t]))
 
 (enable-console-print!)
 
@@ -9,7 +10,7 @@
 
 (defn render
   []
-  (.render (js/treeact)))
+  (.render (t)))
 
 (render)
 

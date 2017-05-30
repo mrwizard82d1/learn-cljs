@@ -45,7 +45,7 @@
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/experiment.js"
                            :main experiment.core
-                           :externs ["treeact-externs.js"]
+                           :foreign-libs [{:file "treeact.js" :provides ["t"]}]
                            :optimizations :advanced
                            :pretty-print false}}]}
 
