@@ -34,7 +34,6 @@
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/experiment.js"
                            :output-dir "resources/public/js/compiled/out"
-                           :optimizations :none
                            :source-map-timestamp true
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                            ;; https://github.com/binaryage/cljs-devtools
@@ -46,6 +45,7 @@
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/experiment.js"
                            :main experiment.core
+                           :externs ["treeact-externs.js"]
                            :optimizations :advanced
                            :pretty-print false}}]}
 
